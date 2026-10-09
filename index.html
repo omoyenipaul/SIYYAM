@@ -1,163 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SIYYAM International Conference & Event Centre — Concept Demo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#faf7f1;--bg2:#f1ece1;--ink:#14231f;--mute:#5d6b66;--brand:#0f3d33;--gold:#b08a3e;--card:#fff;--line:#e2dccd;--onbrand:#faf7f1;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1714;--bg2:#13221d;--ink:#f1ede3;--mute:#9fb0a9;--brand:#0a2a23;--gold:#d2ab5c;--card:#172a24;--line:#254038;--onbrand:#f1ede3}}
-:root[data-theme="dark"]{--bg:#0d1714;--bg2:#13221d;--ink:#f1ede3;--mute:#9fb0a9;--brand:#0a2a23;--gold:#d2ab5c;--card:#172a24;--line:#254038;--onbrand:#f1ede3}
-html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
-*{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;line-height:1.1;font-weight:600}
-a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-section{padding:68px 0}
-.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
-h2{font-size:clamp(32px,7vw,48px);margin-bottom:14px}
-.lead{color:var(--mute);max-width:560px}
-.ribbon{background:var(--gold);color:#1b1608;text-align:center;font-size:12px;padding:6px 12px;font-weight:600}
-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:22px;letter-spacing:.14em;text-decoration:none}
-.logo span{color:var(--gold)}
-nav .links{display:none;gap:24px;font-size:14px}
-nav .links a{text-decoration:none;color:var(--mute)}
-.btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit}
-.btn.gold{background:var(--gold);color:#1b1608}
-.btn.ghost{border-color:rgba(250,247,241,.5);color:#faf7f1}
-.btn.sm{padding:9px 16px;font-size:13px}
-.hero{background:radial-gradient(120% 80% at 80% 0%,#1d5a4a 0%,transparent 60%),linear-gradient(160deg,#0a2a23,#0f3d33 55%,#082019);color:#faf7f1;padding:72px 0 80px;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;inset:auto -20% -40% auto;width:420px;height:420px;border:1px solid rgba(210,171,92,.35);border-radius:50%;box-shadow:0 0 0 40px rgba(210,171,92,.05),0 0 0 90px rgba(210,171,92,.03)}
-.hero h1{font-size:clamp(44px,12vw,92px);max-width:760px;margin:6px 0 18px}
-.hero h1 em{color:#d2ab5c;font-style:italic}
-.hero p{max-width:480px;color:#cfdcd6;font-size:17px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;position:relative;z-index:1}
-.loc{margin-top:36px;font-size:13px;color:#a9bdb5;letter-spacing:.08em}
-.about{display:grid;gap:28px}
-.pillars{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-.pillar{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-weight:500;font-size:15px}
-.pillar b{display:block;color:var(--gold);font-family:"Cormorant Garamond",Georgia,serif;font-size:26px}
-.alt{background:var(--bg2)}
-.grid{display:grid;gap:16px;margin-top:30px}
-.hall{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.ph{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);background:repeating-linear-gradient(135deg,var(--bg2) 0 14px,var(--bg) 14px 28px);border-bottom:1px dashed var(--line)}
-.hall .body{padding:18px}
-.hall h3{font-size:28px;margin-bottom:6px}
-.tbc{display:inline-block;font-size:11px;padding:3px 10px;border-radius:99px;border:1px dashed var(--gold);color:var(--gold);font-weight:600;margin-top:10px}
-.why{display:grid;gap:22px;margin-top:30px}
-.why div{border-top:2px solid var(--gold);padding-top:14px}
-.why h3{font-size:24px;margin-bottom:4px}.why p{color:var(--mute);font-size:15px}
-.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
-.gal .ph{aspect-ratio:1;border:1px dashed var(--line);border-radius:14px}
-.gal .ph:first-child{grid-column:span 2;aspect-ratio:2/1}
-.events{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.chip{padding:12px 20px;border:1px solid var(--line);background:var(--card);border-radius:999px;font-weight:500}
-.book{background:var(--brand);color:var(--onbrand)}
-.book .lead{color:#b7c9c1}
-form{display:grid;gap:14px;margin-top:28px;max-width:560px}
-label{font-size:13px;color:#b7c9c1;display:grid;gap:6px}
-input,select,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(250,247,241,.25);background:rgba(255,255,255,.07);color:#faf7f1;font:inherit;font-size:16px}
-select option{color:#14231f}
-.two{display:grid;gap:14px;grid-template-columns:1fr 1fr}
-.note{font-size:13px;color:#d2ab5c;min-height:20px}
-.contact{display:grid;gap:14px;margin-top:26px}
-.cbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.cbox small{display:block;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:11px;font-weight:600}
-.cbox span{color:var(--mute)}
-.map{aspect-ratio:16/9;border-radius:14px}
-footer{padding:28px 0;font-size:13px;color:var(--mute);border-top:1px solid var(--line);text-align:center}
-@media(min-width:760px){nav .links{display:flex}.about{grid-template-columns:1.1fr 1fr;align-items:center}.grid{grid-template-columns:repeat(3,1fr)}.why{grid-template-columns:repeat(4,1fr)}.gal{grid-template-columns:repeat(4,1fr)}.gal .ph:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}.contact{grid-template-columns:repeat(3,1fr)}section{padding:96px 0}}
-</style>
-</head>
-<body>
-<div class="ribbon">Concept demo · details marked “to be confirmed” will be supplied by SIYYAM</div>
-<nav><div class="wrap"><a class="logo" href="#top">SIY<span>Y</span>AM</a>
-<div class="links"><a href="#about">About</a><a href="#spaces">Spaces</a><a href="#gallery">Gallery</a><a href="#events">Events</a><a href="#contact">Contact</a></div>
-<a class="btn gold sm" href="#book">Book</a></div></nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>SIYYAM International Conference & Event Centre — Concept Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #faf7f1;
+        --bg2: #f1ece1;
+        --ink: #14231f;
+        --mute: #5d6b66;
+        --brand: #0f3d33;
+        --gold: #b08a3e;
+        --card: #fff;
+        --line: #e2dccd;
+        --onbrand: #faf7f1;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0d1714;
+          --bg2: #13221d;
+          --ink: #f1ede3;
+          --mute: #9fb0a9;
+          --brand: #0a2a23;
+          --gold: #d2ab5c;
+          --card: #172a24;
+          --line: #254038;
+          --onbrand: #f1ede3;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0d1714;
+        --bg2: #13221d;
+        --ink: #f1ede3;
+        --mute: #9fb0a9;
+        --brand: #0a2a23;
+        --gold: #d2ab5c;
+        --card: #172a24;
+        --line: #254038;
+        --onbrand: #f1ede3;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px));
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        line-height: 1.1;
+        font-weight: 600;
+      }
+      a {
+        color: inherit;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      section {
+        padding: 68px 0;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      h2 {
+        font-size: clamp(32px, 7vw, 48px);
+        margin-bottom: 14px;
+      }
+      .lead {
+        color: var(--mute);
+        max-width: 560px;
+      }
+      .ribbon {
+        background: var(--gold);
+        color: #1b1608;
+        text-align: center;
+        font-size: 12px;
+        padding: 6px 12px;
+        font-weight: 600;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      nav .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .logo {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.14em;
+        text-decoration: none;
+      }
+      .logo span {
+        color: var(--gold);
+      }
+      nav .links {
+        display: none;
+        gap: 24px;
+        font-size: 14px;
+      }
+      nav .links a {
+        text-decoration: none;
+        color: var(--mute);
+      }
+      .btn {
+        display: inline-block;
+        padding: 14px 24px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .btn.gold {
+        background: var(--gold);
+        color: #1b1608;
+      }
+      .btn.ghost {
+        border-color: rgba(250, 247, 241, 0.5);
+        color: #faf7f1;
+      }
+      .btn.sm {
+        padding: 9px 16px;
+        font-size: 13px;
+      }
+      .hero {
+        background: radial-gradient(
+            120% 80% at 80% 0%,
+            #1d5a4a 0%,
+            transparent 60%
+          ),
+          linear-gradient(160deg, #0a2a23, #0f3d33 55%, #082019);
+        color: #faf7f1;
+        padding: 72px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        inset: auto -20% -40% auto;
+        width: 420px;
+        height: 420px;
+        border: 1px solid rgba(210, 171, 92, 0.35);
+        border-radius: 50%;
+        box-shadow: 0 0 0 40px rgba(210, 171, 92, 0.05),
+          0 0 0 90px rgba(210, 171, 92, 0.03);
+      }
+      .hero h1 {
+        font-size: clamp(44px, 12vw, 92px);
+        max-width: 760px;
+        margin: 6px 0 18px;
+      }
+      .hero h1 em {
+        color: #d2ab5c;
+        font-style: italic;
+      }
+      .hero p {
+        max-width: 480px;
+        color: #cfdcd6;
+        font-size: 17px;
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+        position: relative;
+        z-index: 1;
+      }
+      .loc {
+        margin-top: 36px;
+        font-size: 13px;
+        color: #a9bdb5;
+        letter-spacing: 0.08em;
+      }
+      .about {
+        display: grid;
+        gap: 28px;
+      }
+      .pillars {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+      }
+      .pillar {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      .pillar b {
+        display: block;
+        color: var(--gold);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 26px;
+      }
+      .alt {
+        background: var(--bg2);
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        margin-top: 30px;
+      }
+      .hall {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .ph {
+        aspect-ratio: 16/10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 12px;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mute);
+        background: repeating-linear-gradient(
+          135deg,
+          var(--bg2) 0 14px,
+          var(--bg) 14px 28px
+        );
+        border-bottom: 1px dashed var(--line);
+      }
+      .hall .body {
+        padding: 18px;
+      }
+      .hall h3 {
+        font-size: 28px;
+        margin-bottom: 6px;
+      }
+      .tbc {
+        display: inline-block;
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 99px;
+        border: 1px dashed var(--gold);
+        color: var(--gold);
+        font-weight: 600;
+        margin-top: 10px;
+      }
+      .why {
+        display: grid;
+        gap: 22px;
+        margin-top: 30px;
+      }
+      .why div {
+        border-top: 2px solid var(--gold);
+        padding-top: 14px;
+      }
+      .why h3 {
+        font-size: 24px;
+        margin-bottom: 4px;
+      }
+      .why p {
+        color: var(--mute);
+        font-size: 15px;
+      }
+      .gal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 30px;
+      }
+      .gal .ph {
+        aspect-ratio: 1;
+        border: 1px dashed var(--line);
+        border-radius: 14px;
+      }
+      .gal .ph:first-child {
+        grid-column: span 2;
+        aspect-ratio: 2/1;
+      }
+      .events {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+      .chip {
+        padding: 12px 20px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: 999px;
+        font-weight: 500;
+      }
+      .book {
+        background: var(--brand);
+        color: var(--onbrand);
+      }
+      .book .lead {
+        color: #b7c9c1;
+      }
+      form {
+        display: grid;
+        gap: 14px;
+        margin-top: 28px;
+        max-width: 560px;
+      }
+      label {
+        font-size: 13px;
+        color: #b7c9c1;
+        display: grid;
+        gap: 6px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(250, 247, 241, 0.25);
+        background: rgba(255, 255, 255, 0.07);
+        color: #faf7f1;
+        font: inherit;
+        font-size: 16px;
+      }
+      select option {
+        color: #14231f;
+      }
+      .two {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1fr 1fr;
+      }
+      .note {
+        font-size: 13px;
+        color: #d2ab5c;
+        min-height: 20px;
+      }
+      .contact {
+        display: grid;
+        gap: 14px;
+        margin-top: 26px;
+      }
+      .cbox {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .cbox small {
+        display: block;
+        color: var(--gold);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .cbox span {
+        color: var(--mute);
+      }
+      .map {
+        aspect-ratio: 16/9;
+        border-radius: 14px;
+      }
+      footer {
+        padding: 28px 0;
+        font-size: 13px;
+        color: var(--mute);
+        border-top: 1px solid var(--line);
+        text-align: center;
+      }
+      @media (min-width: 760px) {
+        nav .links {
+          display: flex;
+        }
+        .about {
+          grid-template-columns: 1.1fr 1fr;
+          align-items: center;
+        }
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .why {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .gal {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .gal .ph:first-child {
+          grid-column: span 2;
+          grid-row: span 2;
+          aspect-ratio: auto;
+        }
+        .contact {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        section {
+          padding: 96px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ribbon">
+      Concept demo · details marked “to be confirmed” will be supplied by SIYYAM
+    </div>
+    <nav>
+      <div class="wrap">
+        <a class="logo" href="#top">SIY<span>Y</span>AM</a>
+        <div class="links">
+          <a href="#about">About</a><a href="#spaces">Spaces</a
+          ><a href="#gallery">Gallery</a><a href="#events">Events</a
+          ><a href="#contact">Contact</a>
+        </div>
+        <a class="btn gold sm" href="#book">Book</a>
+      </div>
+    </nav>
 
-<header class="hero" id="top"><div class="wrap">
-<div class="eyebrow">Minna · Niger State · Nigeria</div>
-<h1>Where great <em>gatherings</em> begin.</h1>
-<p>SIYYAM International Conference &amp; Event Centre — a setting for conferences, weddings and corporate occasions in the heart of Minna.</p>
-<div class="cta"><a class="btn gold" href="#book">Book Our Venue</a><a class="btn ghost" href="#spaces">Explore Our Facilities</a></div>
-<div class="loc">MINNA, NIGER STATE</div>
-</div></header>
+    <header class="hero" id="top">
+      <div class="wrap">
+        <div class="eyebrow">Minna · Niger State · Nigeria</div>
+        <h1>Where great <em>gatherings</em> begin.</h1>
+        <p>
+          SIYYAM International Conference &amp; Event Centre — a setting for
+          conferences, weddings and corporate occasions in the heart of Minna.
+        </p>
+        <div class="cta">
+          <a class="btn gold" href="#book">Book Our Venue</a
+          ><a class="btn ghost" href="#spaces">Explore Our Facilities</a>
+        </div>
+        <div class="loc">MINNA, NIGER STATE</div>
+      </div>
+    </header>
 
-<section id="about"><div class="wrap about">
-<div><div class="eyebrow">About SIYYAM</div><h2>A venue for the moments that matter.</h2>
-<p class="lead">SIYYAM International Conference &amp; Event Centre is a conference and event venue in Minna, Niger State. From professional conferences to celebrations, it gives organisers a place to bring people together. <i>(Official description to be supplied by management.)</i></p></div>
-<div class="pillars"><div class="pillar"><b>01</b>Conferences</div><div class="pillar"><b>02</b>Weddings</div><div class="pillar"><b>03</b>Corporate events</div><div class="pillar"><b>04</b>Celebrations</div></div>
-</div></section>
+    <section id="about">
+      <div class="wrap about">
+        <div>
+          <div class="eyebrow">About SIYYAM</div>
+          <h2>A venue for the moments that matter.</h2>
+          <p class="lead">
+            SIYYAM International Conference &amp; Event Centre is a conference
+            and event venue in Minna, Niger State. From professional conferences
+            to celebrations, it gives organisers a place to bring people
+            together.
+            <i>(Official description to be supplied by management.)</i>
+          </p>
+        </div>
+        <div class="pillars">
+          <div class="pillar"><b>01</b>Conferences</div>
+          <div class="pillar"><b>02</b>Weddings</div>
+          <div class="pillar"><b>03</b>Corporate events</div>
+          <div class="pillar"><b>04</b>Celebrations</div>
+        </div>
+      </div>
+    </section>
 
-<section class="alt" id="spaces"><div class="wrap">
-<div class="eyebrow">Our Spaces</div><h2>Halls &amp; event spaces</h2>
-<p class="lead">Every hall will be presented here with confirmed capacity and features.</p>
-<div class="grid">
-<article class="hall"><div class="ph">Hall photo — to be supplied</div><div class="body"><h3>Main Hall</h3><p style="color:var(--mute);font-size:15px">Name, capacity and features to be confirmed.</p><span class="tbc">Capacity: to be confirmed</span></div></article>
-<article class="hall"><div class="ph">Hall photo — to be supplied</div><div class="body"><h3>Second Space</h3><p style="color:var(--mute);font-size:15px">Name, capacity and features to be confirmed.</p><span class="tbc">Capacity: to be confirmed</span></div></article>
-<article class="hall"><div class="ph">Hall photo — to be supplied</div><div class="body"><h3>Additional Areas</h3><p style="color:var(--mute);font-size:15px">Outdoor, lounge or breakout spaces, if available.</p><span class="tbc">To be confirmed</span></div></article>
-</div></div></section>
+    <section class="alt" id="spaces">
+      <div class="wrap">
+        <div class="eyebrow">Our Spaces</div>
+        <h2>Halls &amp; event spaces</h2>
+        <p class="lead">
+          Every hall will be presented here with confirmed capacity and
+          features.
+        </p>
+        <div class="grid">
+          <article class="hall">
+            <div class="ph">Hall photo — to be supplied</div>
+            <div class="body">
+              <h3>Main Hall</h3>
+              <p style="color: var(--mute); font-size: 15px">
+                Name, capacity and features to be confirmed.
+              </p>
+              <span class="tbc">Capacity: to be confirmed</span>
+            </div>
+          </article>
+          <article class="hall">
+            <div class="ph">Hall photo — to be supplied</div>
+            <div class="body">
+              <h3>Second Space</h3>
+              <p style="color: var(--mute); font-size: 15px">
+                Name, capacity and features to be confirmed.
+              </p>
+              <span class="tbc">Capacity: to be confirmed</span>
+            </div>
+          </article>
+          <article class="hall">
+            <div class="ph">Hall photo — to be supplied</div>
+            <div class="body">
+              <h3>Additional Areas</h3>
+              <p style="color: var(--mute); font-size: 15px">
+                Outdoor, lounge or breakout spaces, if available.
+              </p>
+              <span class="tbc">To be confirmed</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="why"><div class="wrap">
-<div class="eyebrow">Why SIYYAM</div><h2>Made for organisers.</h2>
-<div class="why">
-<div><h3>Based in Minna</h3><p>A central point in Niger State for local and visiting guests.</p></div>
-<div><h3>Versatile spaces</h3><p>Suited to many event types. Specifics to be confirmed.</p></div>
-<div><h3>Simple booking</h3><p>Enquire online in under a minute, by form or WhatsApp.</p></div>
-<div><h3>Your advantage here</h3><p>Verified strengths from management will be added.</p></div>
-</div></div></section>
+    <section id="why">
+      <div class="wrap">
+        <div class="eyebrow">Why SIYYAM</div>
+        <h2>Made for organisers.</h2>
+        <div class="why">
+          <div>
+            <h3>Based in Minna</h3>
+            <p>A central point in Niger State for local and visiting guests.</p>
+          </div>
+          <div>
+            <h3>Versatile spaces</h3>
+            <p>Suited to many event types. Specifics to be confirmed.</p>
+          </div>
+          <div>
+            <h3>Simple booking</h3>
+            <p>Enquire online in under a minute, by form or WhatsApp.</p>
+          </div>
+          <div>
+            <h3>Your advantage here</h3>
+            <p>Verified strengths from management will be added.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="alt" id="gallery"><div class="wrap">
-<div class="eyebrow">Gallery</div><h2>See the venue.</h2>
-<p class="lead">Official photography goes here. Placeholders keep the layout honest until real images are provided.</p>
-<div class="gal"><div class="ph">Exterior — photo to be supplied</div><div class="ph">Interior</div><div class="ph">Stage</div><div class="ph">Seating</div><div class="ph">Event</div></div>
-</div></section>
+    <section class="alt" id="gallery">
+      <div class="wrap">
+        <div class="eyebrow">Gallery</div>
+        <h2>See the venue.</h2>
+        <p class="lead">
+          Official photography goes here. Placeholders keep the layout honest
+          until real images are provided.
+        </p>
+        <div class="gal">
+          <div class="ph">Exterior — photo to be supplied</div>
+          <div class="ph">Interior</div>
+          <div class="ph">Stage</div>
+          <div class="ph">Seating</div>
+          <div class="ph">Event</div>
+        </div>
+      </div>
+    </section>
 
-<section id="events"><div class="wrap">
-<div class="eyebrow">Events</div><h2>Every kind of occasion.</h2>
-<div class="events"><span class="chip">Conferences</span><span class="chip">Weddings</span><span class="chip">Corporate events</span><span class="chip">Seminars &amp; workshops</span><span class="chip">Receptions</span><span class="chip">Other events</span></div>
-<p class="lead" style="margin-top:22px">Past events can be showcased here once verified with management.</p>
-</div></section>
+    <section id="events">
+      <div class="wrap">
+        <div class="eyebrow">Events</div>
+        <h2>Every kind of occasion.</h2>
+        <div class="events">
+          <span class="chip">Conferences</span><span class="chip">Weddings</span
+          ><span class="chip">Corporate events</span
+          ><span class="chip">Seminars &amp; workshops</span
+          ><span class="chip">Receptions</span
+          ><span class="chip">Other events</span>
+        </div>
+        <p class="lead" style="margin-top: 22px">
+          Past events can be showcased here once verified with management.
+        </p>
+      </div>
+    </section>
 
-<section class="book" id="book"><div class="wrap">
-<div class="eyebrow">Booking Enquiry</div><h2>Plan your event with us.</h2>
-<p class="lead">Tell us what you have in mind and we will get back to you.</p>
-<form id="f">
-<label>Full name<input name="name" required autocomplete="name"></label>
-<label>Phone / WhatsApp<input name="phone" type="tel" required autocomplete="tel"></label>
-<label>Event type<select name="type"><option>Conference</option><option>Wedding</option><option>Corporate event</option><option>Seminar / workshop</option><option>Other</option></select></label>
-<div class="two"><label>Preferred date<input name="date" type="date"></label><label>Guests<input name="guests" type="number" min="1" inputmode="numeric" placeholder="e.g. 200"></label></div>
-<label>Message (optional)<textarea name="msg" rows="3"></textarea></label>
-<button class="btn gold" type="submit">Send via WhatsApp</button>
-<div class="note" id="note"></div>
-</form></div></section>
+    <section class="book" id="book">
+      <div class="wrap">
+        <div class="eyebrow">Booking Enquiry</div>
+        <h2>Plan your event with us.</h2>
+        <p class="lead">
+          Tell us what you have in mind and we will get back to you.
+        </p>
+        <form id="f">
+          <label
+            >Full name<input name="name" required autocomplete="name"
+          /></label>
+          <label
+            >Phone / WhatsApp<input
+              name="phone"
+              type="tel"
+              required
+              autocomplete="tel"
+          /></label>
+          <label
+            >Event type<select name="type">
+              <option>Conference</option>
+              <option>Wedding</option>
+              <option>Corporate event</option>
+              <option>Seminar / workshop</option>
+              <option>Other</option>
+            </select></label
+          >
+          <div class="two">
+            <label>Preferred date<input name="date" type="date" /></label
+            ><label
+              >Guests<input
+                name="guests"
+                type="number"
+                min="1"
+                inputmode="numeric"
+                placeholder="e.g. 200"
+            /></label>
+          </div>
+          <label
+            >Message (optional)<textarea name="msg" rows="3"></textarea>
+          </label>
+          <button class="btn gold" type="submit">Send via WhatsApp</button>
+          <div class="note" id="note"></div>
+        </form>
+      </div>
+    </section>
 
-<section id="contact"><div class="wrap">
-<div class="eyebrow">Contact</div><h2>Find &amp; reach us.</h2>
-<div class="contact">
-<div class="cbox"><small>Phone</small><span>To be confirmed</span></div>
-<div class="cbox"><small>WhatsApp</small><span>To be confirmed</span></div>
-<div class="cbox"><small>Address</small><span>Minna, Niger State, Nigeria. Full address to be confirmed.</span></div>
-</div>
-<div class="cbox" style="margin-top:14px"><div class="ph map" style="border-radius:10px">Google Map — to be added with confirmed location</div></div>
-</div></section>
+    <section id="contact">
+      <div class="wrap">
+        <div class="eyebrow">Contact</div>
+        <h2>Find &amp; reach us.</h2>
+        <div class="contact">
+          <div class="cbox">
+            <small>Phone</small><span>To be confirmed</span>
+          </div>
+          <div class="cbox">
+            <small>WhatsApp</small><span>To be confirmed</span>
+          </div>
+          <div class="cbox">
+            <small>Address</small
+            ><span
+              >Minna, Niger State, Nigeria. Full address to be confirmed.</span
+            >
+          </div>
+        </div>
+        <div class="cbox" style="margin-top: 14px">
+          <div class="ph map" style="border-radius: 10px">
+            Google Map — to be added with confirmed location
+          </div>
+        </div>
+      </div>
+    </section>
 
-<footer><div class="wrap">© SIYYAM International Conference &amp; Event Centre · Concept demo, not the final website</div></footer>
+    <footer>
+      <div class="wrap">
+        © SIYYAM International Conference &amp; Event Centre · Concept demo, not
+        the final website
+      </div>
+    </footer>
 
-<script>
-var WHATSAPP_NUMBER=""; // international format, digits only, e.g. 234XXXXXXXXXX
-document.getElementById("f").addEventListener("submit",function(e){
-e.preventDefault();var d=new FormData(e.target),n=document.getElementById("note");
-var t="Hello SIYYAM, I'd like to enquire about a booking.\nName: "+d.get("name")+"\nPhone: "+d.get("phone")+"\nEvent: "+d.get("type")+"\nDate: "+(d.get("date")||"TBC")+"\nGuests: "+(d.get("guests")||"TBC")+"\n"+(d.get("msg")||"");
-if(!WHATSAPP_NUMBER){n.textContent="Demo: WhatsApp number will be connected once confirmed.";return}
-window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(t),"_blank");
-});
-</script>
-</body>
+    <script>
+      var WHATSAPP_NUMBER = ""; // international format, digits only, e.g. 234XXXXXXXXXX
+      document.getElementById("f").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var d = new FormData(e.target),
+          n = document.getElementById("note");
+        var t =
+          "Hello SIYYAM, I'd like to enquire about a booking.\nName: " +
+          d.get("name") +
+          "\nPhone: " +
+          d.get("phone") +
+          "\nEvent: " +
+          d.get("type") +
+          "\nDate: " +
+          (d.get("date") || "TBC") +
+          "\nGuests: " +
+          (d.get("guests") || "TBC") +
+          "\n" +
+          (d.get("msg") || "");
+        if (!WHATSAPP_NUMBER) {
+          n.textContent =
+            "Demo: WhatsApp number will be connected once confirmed.";
+          return;
+        }
+        window.open(
+          "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(t),
+          "_blank"
+        );
+      });
+    </script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "a9e8245cf86f48cfa0128a7485512dba"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>
